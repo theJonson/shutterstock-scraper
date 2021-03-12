@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# Before you start you'll need a Shutterstock API key, fill that in the KEY variable, also update the s3 bucket on line 87 to match your target
+
 #create working folder
 WORK=/tmp/shutterstock
 if [ ! -d "$WORK" ]; then
@@ -25,7 +28,7 @@ echo $START
 echo $END
 
 #Set API KEY, you'll need to get one from https://www.shutterstock.com/developers
-KEY="<INSERT APIKEY HERE"
+KEY="<INSERT APIKEY HERE>"
 API_KEY="Authorization: Bearer $KEY"
 
 #Remove old image_ids.txt
