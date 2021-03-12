@@ -26,6 +26,9 @@ END=date_updated_end=$TODAY\T$TIMEEND\Z
 KEY="<INSERT APIKEY HERE>"
 API_KEY="Authorization: Bearer $KEY"
 
+#If your using editorial endpoints, using the supplier code is easier than searching
+SUPPLIER="supplier_code=SPTXXX"
+
 #Remove old image_ids.txt
 echo "Remove old image ids"
 rm -f $WORK/image_ids.txt
@@ -33,7 +36,7 @@ rm -f $WORK/image_ids.txt
 #Gets all images uploaded between 2 dates
 echo "Find images"
 
-curl -s -X GET https://api.shutterstock.com/v2/editorial/images/updated -H "Accept: application/json" -G -H "$API_KEY" --data-urlencode "type=addition" --data-urlencode "country=GBR" --data-urlencode "supplier_code=SPT" --data-urlencode "$START" --data-urlencode "$END" | jq -r '.data[] | .id' > $WORK/image_ids.txt
+curl -s -X GET https://api.shutterstock.com/v2/editorial/images/updated -H "Accept: application/json" -G -H "$API_KEY" --data-urlencode "type=addition" --data-urlencode "country=GBR" --data-urlencode "$SUPPLIER" --data-urlencode "$START" --data-urlencode "$END" | jq -r '.data[] | .id' > $WORK/image_ids.txt
 
 #Check if there are any image ids
 if [ -f $WORK/image_ids.txt ]
