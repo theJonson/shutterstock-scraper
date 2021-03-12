@@ -16,16 +16,10 @@ echo "Building Dates"
 TODAY=`date +%F`
 TIME=`date +%T`
 
-echo $TODAY
-echo $TIME
-
 #Build start and end date variables
 echo "Building Start and End"
 START=date_updated_start=$TODAY\T00:00:01Z
 END=date_updated_end=$TODAY\T$TIME\Z
-
-echo $START
-echo $END
 
 #Set API KEY, you'll need to get one from https://www.shutterstock.com/developers
 KEY="<INSERT APIKEY HERE>"
