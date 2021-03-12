@@ -38,7 +38,7 @@ rm -f $WORK/image_ids.txt
 #Gets all images uploaded between 2 dates
 echo "Find images"
 
-curl -s -X GET https://api.shutterstock.com/v2/editorial/images/updated -H "Accept: application/json" -G -H "$API_KEY" --data-urlencode "type=addition" --data-urlencode "country=GBR" --data-urlencode "supplier_code=SPTQ" --data-urlencode "$START" --data-urlencode "$END" | jq -r '.data[] | .id' > $WORK/image_ids.txt
+curl -s -X GET https://api.shutterstock.com/v2/editorial/images/updated -H "Accept: application/json" -G -H "$API_KEY" --data-urlencode "type=addition" --data-urlencode "country=GBR" --data-urlencode "supplier_code=SPT" --data-urlencode "$START" --data-urlencode "$END" | jq -r '.data[] | .id' > $WORK/image_ids.txt
 
 #Check if there are any image ids
 if [ -f $WORK/image_ids.txt ]
