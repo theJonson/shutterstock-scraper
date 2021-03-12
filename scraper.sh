@@ -81,7 +81,7 @@ xargs -n 1 curl -s -O -J -L < $WORK/urls.txt
 rm -f $WORK/*.json
 
 #Upload files to S3 bucket - setup s3cmd first
-s3cmd sync $WORK/*.jpg s3://qpr-greenfly --skip-existing --quiet
+s3cmd sync $WORK/*.jpg s3://<target-bucket> --skip-existing --quiet
 
 #Remove any downloaded jpgs and txt files
 rm -f $WORK/*.jpg
